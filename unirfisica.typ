@@ -1,12 +1,13 @@
-#let longitud_abstract = 138
+#let longitud-abstract = 138
 #let unirfisica(
   titulo: "Título de mi TFG",
   alumno: "Mi nombre",
   director: "Nombre de mi director",
-  resumen: lorem(longitud_abstract),
-  abstract: lorem(longitud_abstract),
+  resumen: lorem(longitud-abstract),
+  abstract: lorem(longitud-abstract),
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
+  logo: none,
   doc,
 ) = {
   set page(
@@ -22,7 +23,7 @@
     ],
     footer: none,
   )
-  set text(font: "Calibri", size: 12.5pt)
+  set text(font: "calibri", size: 12.5pt, lang: "es")
   set par(linebreaks: "optimized", justify: true, spacing: 1.8em, leading: 1.2em)
   let azulunir = rgb("#0098cd")
 
@@ -60,8 +61,10 @@
   /*
   Definición de la portada
   */
+
   align(center)[
-    #image("unir logo.png", width: 60%)
+    #logo
+
     #text(font: "calibri", size: 24pt)[Universidad Internacional de la Rioja
     ]
 
@@ -100,7 +103,7 @@
   pagebreak()
 
   align(top)[
-    #text(fill: azulunir, size: 18pt, weight: "regular", font: "Calibri")[Resumen]
+    #text(fill: azulunir, size: 18pt, weight: "regular", font: "calibri")[Resumen]
 
     #resumen
 
