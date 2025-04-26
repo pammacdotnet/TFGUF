@@ -1,3 +1,5 @@
+#import "@preview/unify:0.7.0": num, qty, numrange, qtyrange
+#import "@preview/physica:0.9.4": *
 #let longitud-abstract = 138
 #let unirfisica(
   titulo: "Título de mi TFG",
@@ -13,14 +15,6 @@
   set page(
     paper: "a4",
     margin: (left: 3cm, right: 2cm),
-    header: [
-      #set text(10pt)
-      #align(right)[
-        #alumno
-        #v(-0.9em)
-        #titulo
-      ]
-    ],
     footer: none,
   )
   set text(font: "calibri", size: 12.5pt, lang: "es")
@@ -97,8 +91,6 @@
     ]
   ]
 
-  //pagebreak()
-
 
   pagebreak()
 
@@ -118,11 +110,24 @@
     #text(weight: "bold")[Keywords]:
     #kwords
   ]
+
+
+  // text(font: "calibri", size: 18pt, fill: azulunir, weight: "light")[Índice de contenidos]
+  outline(title: "Índice de contenidos")
+  pagebreak()
   set page(
     footer: context [
       #set align(right)
       #set text(8pt)
       #text(13pt)[#counter(page).display()]
+    ],
+    header: [
+      #set text(10pt)
+      #align(right)[
+        #alumno
+        #v(-0.9em)
+        #titulo
+      ]
     ],
   )
   counter(page).update(1)
