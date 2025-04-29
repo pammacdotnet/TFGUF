@@ -1,5 +1,5 @@
-#import "@preview/unify:0.7.0": num, qty, numrange, qtyrange
-#import "@preview/physica:0.9.4": *
+#import "@preview/unify:0.7.1": num, qty, numrange, qtyrange
+#import "@preview/physica:0.9.5": *
 #let longitud-abstract = 138
 #let unirfisica(
   titulo: "Título de mi TFG",
@@ -114,7 +114,7 @@
 
   // text(font: "calibri", size: 18pt, fill: azulunir, weight: "light")[Índice de contenidos]
   outline(title: "Índice de contenidos")
-  pagebreak()
+  //pagebreak()
   set page(
     footer: context [
       #set align(right)
