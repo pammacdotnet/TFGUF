@@ -10,6 +10,7 @@
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
   logo: none,
+  agradecimientos: quote(attribution: [Plato], block: true)[#lorem(20)],
   doc,
 ) = {
   set page(
@@ -91,6 +92,15 @@
     ]
   ]
 
+
+  if (agradecimientos != none) {
+    if (
+      agradecimientos.func() == quote and agradecimientos.has("attribution") and agradecimientos.attribution == [Plato]
+    ) [] else [
+      #pagebreak()
+      #align(center + horizon, text(size: 18pt, [#agradecimientos]))
+    ]
+  }
 
   pagebreak()
 
