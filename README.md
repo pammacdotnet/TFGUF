@@ -9,6 +9,6 @@ In order to use it, just import it and apply a `show` rule:
 
 ```typst
 #import "@local/tfguf:0.0.3": unirfisica
-#show: unirfisica.with(titulo: "Mi trabajo de fin de grado", agradecimientos: [_A mi padre_])
+#show: unirfisica.with(titulo: "Mi trabajo de fin de grado", agradecimientos: [_A mi padre_], logo: image("unir logo.png", width: 60%))
 ```
 If you do not have the **Calibri font familiy**, you can download it from [here](https://www.rmtweb.co.uk/calibri-and-cambria-fonts-for-mac). Once done, upload all the `Calibri*.ttf` files to your project directory.
