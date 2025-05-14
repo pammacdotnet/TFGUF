@@ -1,6 +1,6 @@
 [package]
 name = "tfguf"
-version = "0.0.2"
+version = "0.0.3"
 entrypoint = "unirfisica.typ"
 authors = ["Alberto Corbi (UNIR)"]
 license = "MIT"
