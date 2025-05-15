@@ -4,7 +4,7 @@
 #show: unirfisica.with(
   titulo: "Mi trabajo de fin de grado",
   logo: image("unir logo.png", width: 60%),
-  agradecimientos: quote(attribution: "Platos", block: true)[Hola],
+  agradecimientos: quote(attribution: "Yo", block: true)[_A mis padres_],
 )
 
 // Esto es para que la aplicación web reconozca el texto como en español y haga mejor detección de sintaxis.
