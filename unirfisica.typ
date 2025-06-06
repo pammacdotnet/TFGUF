@@ -22,6 +22,12 @@
   set par(linebreaks: "optimized", justify: true, spacing: 1.8em, leading: 1.2em)
   let azulunir = rgb("#0098cd")
 
+  show link: it => {
+    if not (it.body.text.contains(it.dest)) {
+      text(fill: azulunir, underline(it))
+    } else { text(fill: azulunir, font: "IBM Plex Mono", size: 10.2pt, underline(it)) }
+  }
+
   /*
     Longitur del abstract de ejemplo
   */
@@ -60,7 +66,7 @@
   align(center)[
     #logo
 
-    #text(font: "calibri", size: 24pt)[Universidad Internacional de la Rioja
+    #text(font: "calibri", size: 24pt)[Universidad Internacional de La Rioja (UNIR)
     ]
 
     #v(-10pt)

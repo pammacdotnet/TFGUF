@@ -1,10 +1,12 @@
 
-#import "@local/tfguf:0.0.3": *
-//#import "../unirfisica.typ": *
+//#import "@local/tfguf:0.0.3": *
+#import "../unirfisica.typ": *
 #show: unirfisica.with(
   titulo: "Mi trabajo de fin de grado",
-  logo: image("unir logo.png", width: 60%),
+  logo: image("unir logo.svg", width: 60%),
   agradecimientos: quote(attribution: "Yo", block: true)[_A mis padres_],
+  abstract: lorem(138),
+  resumen: lorem(138),
 )
 
 // Esto es para que la aplicación web reconozca el texto como en español y haga mejor detección de sintaxis.
@@ -21,7 +23,7 @@ $ curl (grad f), tensor(T, -mu, +nu), pdv(f, x, y, [1,2]) $
 
 
 = Estado del arte
-El nombre de esta sección es opcional.
+El nombre de esta sección es opcional. #link("https://unir.net")[Aquí] tenemos un enlace. #link("https://unir.net")
 
 = Material y métodos
 
