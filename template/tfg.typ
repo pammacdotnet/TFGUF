@@ -1,9 +1,8 @@
 
-//#import "@local/tfguf:0.0.3": *
-#import "../unirfisica.typ": *
+#import "@local/tfguf:0.0.3": *
+//#import "../unirfisica.typ": *
 #show: unirfisica.with(
   titulo: "Mi trabajo de fin de grado",
-  logo: image("unir logo.svg", width: 60%),
   agradecimientos: quote(attribution: "Yo", block: true)[_A mis padres_],
   abstract: lorem(138),
   resumen: lorem(138),

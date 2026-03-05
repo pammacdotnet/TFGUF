@@ -1,5 +1,6 @@
-#import "@preview/unify:0.7.1": num, qty, numrange, qtyrange
+#import "@preview/unify:0.7.1": num, numrange, qty, qtyrange
 #import "@preview/physica:0.9.5": *
+#set text(lang: "es")
 #let longitud-abstract = 138
 #let unirfisica(
   titulo: "Título de mi TFG",
@@ -9,7 +10,7 @@
   abstract: lorem(longitud-abstract),
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
-  logo: none,
+  logo: image("unir logo.svg", width: 60%),
   agradecimientos: quote(attribution: [Plato], block: true)[#lorem(20)],
   doc,
 ) = {
