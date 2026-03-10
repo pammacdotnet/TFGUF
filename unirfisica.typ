@@ -10,7 +10,7 @@
   abstract: lorem(longitud-abstract),
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
-  logo: image("uflogo.png", width: 60%),
+  logo: image("unir logo.svg", width: 60%),
   agradecimientos: quote(attribution: [Plato], block: true)[#lorem(20)],
   doc,
 ) = {
@@ -30,6 +30,52 @@
   }
 
   /*
+   * Estilo de los captions de las figuras/tablas flotantes
+   */
+
+  show figure: set figure.caption(separator: ". ")
+  show figure: set figure(gap: 1em)
+  show figure.caption: emph
+
+  show figure: it => {
+    let sup = it.caption.supplement.text
+    let sup-and-num = sup + "\\s\\d+\\.\\s+"
+    let first-part = sup + "([^.]+\\.){2}"
+    let keep-first-part(doc) = {
+      show regex(sup + ".+"): it => {
+        it.text.match(regex(first-part)).text
+      }
+
+      doc
+    }
+    let remove-first-part(doc) = {
+      show regex(sup + ".+"): it => {
+        it.text.replace(regex(first-part + "\\s*"), "")
+      }
+      set text(fill: gray.darken(50%))
+      doc
+    }
+    {
+      set align(left)
+      set block(below: it.gap)
+      show ref: none
+      show sup: strong
+      show regex(sup-and-num): emph
+      show: keep-first-part
+      it.caption
+    }
+    show figure.caption: emph
+    show figure.caption: it => {
+      show: remove-first-part
+      it
+    }
+    it
+  }
+
+  set math.equation(numbering: "(1)")
+
+
+  /*
     Longitur del abstract de ejemplo
   */
   let longitud_abstract = 130
@@ -38,27 +84,16 @@
   Estilo de los títulos de cabecera de nivel 1 (sección )
   */
   set heading(numbering: "1.")
-  show heading.where(level: 1): item => {
-    pagebreak()
-    v(130pt)
-    if item.numbering != none {
-      text(azulunir, weight: "light", size: 20pt)[#context counter(heading).display()]
-      " "
-    }
-    text(azulunir, weight: "light", 20pt)[#item.body]
-    v(0.1em)
-  }
 
-  /*
-  Estilo de los títulos de cabecera de nivel 2 (subsección)
-  */
-  show heading.where(level: 2): item => {
-    v(20pt)
-    text(azulunir, weight: "light", size: 15pt)[#context counter(heading).display()]
-    " "
-    text(azulunir, weight: "light", 15pt)[#item.body]
-    v(0.1em)
+  show heading.where(level: 1): it => {
+    pagebreak()
+    v(20%)
+    set text(azulunir, weight: "light", size: 20pt)
+    it
   }
+  show heading.where(level: 2): set text(azulunir, weight: "light", size: 15pt)
+  show heading: set block(above: 3em, below: 1em, sticky: true)
+
 
   /*
   Definición de la portada
@@ -129,20 +164,17 @@
   ]
 
 
-  // text(font: "calibri", size: 18pt, fill: azulunir, weight: "light")[Índice de contenidos]
   outline(title: "Índice de contenidos")
-  //pagebreak()
   set page(
     footer: context [
       #set align(right)
-      #set text(8pt)
-      #text(13pt)[#counter(page).display()]
+      #text(13pt, fill: gray.darken(30%))[#counter(page).display()]
     ],
     header: [
-      #set text(10pt)
+      #set text(size: 10pt, weight: "extralight", fill: gray.darken(30%))
       #align(right)[
         #alumno
-        #v(-0.9em)
+        #v(-1.2em)
         #titulo
       ]
     ],
